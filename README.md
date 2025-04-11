@@ -8,3 +8,4 @@ Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-imag
 - To augment unknown dataset, 2 good ideas I would like to try.
    1. Train VAE to map NIDS dataset into latent space like how VAE is used prior to training Stable Diffusion, with dataset mapped to latent space I feel safe to add random noise to augment the dataset.
    2.  Inspired from MAE, mask random 'patch' for each training batch to a more reduced size along sequence dimension.
+- The hardest bits to implement in numpy are the most mundane bits in Pytorch: optimizer.step() and optimizer.zero_grad(). Fortunately, as I have implemented backward pass for each layer manually, I can pin point exactly which module attribute to empty dict or list to prevent memory leak.
