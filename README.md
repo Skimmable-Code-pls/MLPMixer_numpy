@@ -1,5 +1,5 @@
 Report after training MLP-Mixer on UNSW-NB15 dataset. Pretrained weight is included here under .npy file. You should use the model and optimiser state loading function that I wrote in the MLP-Mixer_for_1dim-input.ipynb
-![image](https://github.com/user-attachments/assets/fbcf1f87-e27a-4727-ad0c-f8b726d6285c) <br>
+
 
 Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-image specific dataset where every pixel is in extreme range from 0->9.57+E09
 - Avoid using any data augmentation. No point of augmenting dataset if the augmented version doesn't bear any coherence.
