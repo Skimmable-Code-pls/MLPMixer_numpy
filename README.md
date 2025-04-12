@@ -1,4 +1,4 @@
-Report after training MLP-Mixer on UNSW-NB15 dataset. Pretrained weight is included here under .npy file. You should use the model and optimiser state loading function that I wrote in the MLP-Mixer_for_1dim-input.ipynb ![image]()
+Report after training MLP-Mixer on UNSW-NB15 dataset. Pretrained weight is included here under .npy file. You should use the model and optimiser state loading function that I wrote in the MLP-Mixer_for_1dim-input.ipynb ![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/MLP-Mixer_depth10_48_embed_dim.png)
 
 
 
