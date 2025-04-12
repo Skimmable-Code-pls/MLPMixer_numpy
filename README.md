@@ -10,7 +10,20 @@ Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-imag
 - The hardest bits to implement in numpy are the most mundane bits in Pytorch: optimizer.step() and optimizer.zero_grad(). Fortunately, as I have implemented backward pass for each layer manually, I can pin point exactly which module attribute to empty dict or list to prevent memory leak.
 - Permutation invariance isn't as big of a deal as I have originally thought given this project and [someone's else project on MLP-Mixer](https://github.com/sijan67/Exploring-the-MLP-Mixer-Architecture/tree/main). However, this maybe just means that when the resolution is very small and the amount of redundant pixel is very very small, the adverse effect of permutation invariance isn't amplified as it would be have if the resolution was 224x224 for example.
 
-To-Do
-- [ ] Warmup epoch entirely without using torch
-- [ ] Lr scheduler without using torch
-- [ ] Build MAE from scratch without using torch and add-on MLP-Mixer backbone to counter overfitting problem 
+To Build From Scratch without using torch
+- [ ] Warmup epoch 
+- [ ] Lr scheduler
+- [ ] Stochastic Depth={0->0.1}
+- [ ] Gradient accumulation for more desired batch size = 4096 and reduce code overhead
+- [ ] Build MAE from scratch then add-on MLP-Mixer backbone to counter overfitting problem 
+
+Here are the stuffs I have built from scratch without using torch
+- [x] Linear layer w/ manual backprop and init weight & bias w/ Kaiming uniform distribution
+- [x] DropOut=0.1 w/ manual backprop
+- [x] LayerNorm w/ manual backprop
+- [x] GeLU or Tanh w/ manual backprop
+- [x] TokenMixer block
+- [x] ChannelMixer block
+- [x] Adam optimiser w/ β1 = 0.9, β2 = 0.999, weight decay = 0.03, lr=0.003. Updating weight is the hardest bit to build and debug that I ended up accidentally find a way to consistently detect vanishing gradient in the process.
+- [x] Binary Cross Entropy with logits
+- [x] Optimiser.zero_grad()
