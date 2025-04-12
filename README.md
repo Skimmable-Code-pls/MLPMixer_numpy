@@ -24,6 +24,6 @@ Here are the stuffs I have built from scratch without using torch
 - [x] GeLU or Tanh w/ manual backprop
 - [x] TokenMixer block
 - [x] ChannelMixer block
-- [x] Adam optimiser w/ β1 = 0.9, β2 = 0.999, weight decay = 0.03, lr=0.003. Updating weight is the hardest bit to build and debug that I ended up accidentally find a way to consistently detect vanishing gradient in the process.
+- [x] Adam optimiser w/ β1 = 0.9, β2 = 0.999, weight decay = 0.03, lr=0.003. Updating weight is the hardest bit to build and debug that I ended up accidentally find a way to consistently detect vanishing gradient within 3 epochs.
 - [x] Binary Cross Entropy with logits
 - [x] Optimiser.zero_grad()
