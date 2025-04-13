@@ -11,7 +11,7 @@ To Build From Scratch without using torch
 - [ ] Lr scheduler
 - [ ] Stochastic Depth={0->0.1}
 - [ ] Gradient accumulation for more desired batch size = 4096 and reduce code overhead
-- [ ] Build MAE from scratch then add-on MLP-Mixer backbone to counter overfitting problem
+- [ ] Build MAE from scratch then add-on MLP-Mixer backbone to counter overfitting problem. To adapt random_masking module, create a dropout mask with uniform distribution then elementwise-multiply with projected input; take caution in adapting id_restores. To adapt decoder, start by reverse-engineering [this code](https://github.com/facebookresearch/mae/blob/main/models_mae.py#L172-L196) 
 - [ ] Can use pretrained MAE or build and train VAE from scratch to create latent, then add random noise to that latent
 
 Here are the stuffs I have built from scratch without using torch
