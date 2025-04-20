@@ -8,10 +8,7 @@ Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-imag
 - Permutation invariance isn't as big of a deal as I have originally thought given this project and [someone's else project on MLP-Mixer](https://github.com/sijan67/Exploring-the-MLP-Mixer-Architecture/tree/main). However, this maybe just means that when the resolution is very small and the amount of redundant pixel is very very small, the adverse effect of permutation invariance isn't amplified as it would be have if the resolution was 224x224 for example.
 
 To Build From Scratch without using torch
-- [x] Warmup (epoch 0: lr=0.001 -> epoch 5: lr=0.01)
-- [x] CosineAnnealingLR scheduler (T_0 = 4, eta_min=0.00001)
-- [x] Stochastic Depth(0.1)
-- [ ] Gradient accumulation for more desired batch size = 4096 and reduce code overhead
+- [ ] Gradient accumulation for more desired batch size = 4096 and reduce code overhead. Doing this manually is hard because I need to rewrite the code every layer and activation manually to incorporate gradient accumulation. For the moment, this is low priority 
 - [ ] Build MAE from scratch then add-on MLP-Mixer backbone to counter overfitting problem. To adapt random_masking module, create a dropout mask with uniform distribution then elementwise-multiply with projected input; take caution in adapting id_restores. To adapt decoder, start by reverse-engineering [this code](https://github.com/facebookresearch/mae/blob/main/models_mae.py#L172-L196)
 - [ ] Can use pretrained MAE or build and train VAE from scratch to create latent, then add random noise to that latent
 
@@ -22,6 +19,9 @@ Here are the stuffs I have built from scratch without using torch
 - [x] GeLU or Tanh w/ manual backprop
 - [x] TokenMixer block
 - [x] ChannelMixer block
-- [x] Adam optimiser w/ β1 = 0.9, β2 = 0.999, weight decay = 0.03, lr=0.003. Updating weight is the hardest bit to build and debug that I ended up accidentally find a way to consistently detect vanishing gradient within 3 epochs.
+- [x] Adam optimiser w/ β1 = 0.9, β2 = 0.999, weight decay = 0, lr=0.001. Updating weight is the hardest bit to build and debug that I ended up accidentally find a way to consistently detect vanishing gradient within 3 epochs
 - [x] Binary Cross Entropy with logits
 - [x] Optimiser.zero_grad()
+- [x] Warmup (epoch 0: lr=0 -> epoch 10: lr=0.001)
+- [x] CosineAnnealingLR scheduler (T_max = num_epochs, eta_min=0.00001)
+- [x] Stochastic Depth(0.1)
