@@ -8,7 +8,6 @@ Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-imag
 - Permutation invariance isn't as big of a deal as I have originally thought given this project and [someone's else project on MLP-Mixer](https://github.com/sijan67/Exploring-the-MLP-Mixer-Architecture/tree/main). However, this maybe just means that when the resolution is very small and the amount of redundant pixel is very very small, the adverse effect of permutation invariance isn't amplified as it would be have if the resolution was 224x224 for example.
 
 To Build From Scratch without using torch
-- [ ] Set a simple condition to activate weight decay with following heuristics: (epoch 3: weight decay=0.3 -> epoch 5: weight decay=0.1 -> epoch 7: weight_decay=0.03 -> epoch 9 onward: weight_decay=0.001)
 - [ ] Warmup (epoch 0: lr=0.001 -> epoch 4: lr=0.01)
 - [ ] CosineAnnealingLR scheduler (T_0 = 4, eta_min=0.00001)
 - [ ] Stochastic Depth(0.1)
