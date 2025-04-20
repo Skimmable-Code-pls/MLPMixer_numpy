@@ -8,7 +8,7 @@ Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-imag
 - Permutation invariance isn't as big of a deal as I have originally thought given this project and [someone's else project on MLP-Mixer](https://github.com/sijan67/Exploring-the-MLP-Mixer-Architecture/tree/main). However, this maybe just means that when the resolution is very small and the amount of redundant pixel is very very small, the adverse effect of permutation invariance isn't amplified as it would be have if the resolution was 224x224 for example.
 
 To Build From Scratch without using torch
-- [ ] Gradient accumulation for more desired batch size = 4096 and reduce code overhead. Doing this manually is hard because I need to rewrite the code every layer and activation manually to incorporate gradient accumulation. For the moment, this is low priority 
+- [ ] Gradient accumulation for more desired batch size = 4096 and reduce code overhead. For the moment, this is low priority because it doesn't make sense to accumulate for desired batch size = 4096 when the training dataset only has 20000 samples, and doing this requires me to rewrite def backward of every layer and activation function to incorporate gradient accumulation. 
 - [ ] Build MAE from scratch then add-on MLP-Mixer backbone to counter overfitting problem. To adapt random_masking module, create a dropout mask with uniform distribution then elementwise-multiply with projected input; take caution in adapting id_restores. To adapt decoder, start by reverse-engineering [this code](https://github.com/facebookresearch/mae/blob/main/models_mae.py#L172-L196)
 - [ ] Can use pretrained MAE or build and train VAE from scratch to create latent, then add random noise to that latent
 
