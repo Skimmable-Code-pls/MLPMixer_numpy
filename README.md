@@ -10,7 +10,7 @@ Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-imag
 To Build From Scratch without using torch
 - [ ] Set a simple condition to activate weight decay with following heuristics: (epoch 3: weight decay=0.3 -> epoch 5: weight decay=0.1 -> epoch 7: weight_decay=0.03 -> epoch 9 onward: weight_decay=0.001)
 - [ ] Warmup (epoch 0: lr=0.001 -> epoch 4: lr=0.01)
-- [ ] CosineAnnealingWarmRestarts LR scheduler (T_0 = 4, eta_min=0.00001)
+- [ ] CosineAnnealingLR scheduler (T_0 = 4, eta_min=0.00001)
 - [ ] Stochastic Depth(0.1)
 - [ ] Gradient accumulation for more desired batch size = 4096 and reduce code overhead
 - [ ] Build MAE from scratch then add-on MLP-Mixer backbone to counter overfitting problem. To adapt random_masking module, create a dropout mask with uniform distribution then elementwise-multiply with projected input; take caution in adapting id_restores. To adapt decoder, start by reverse-engineering [this code](https://github.com/facebookresearch/mae/blob/main/models_mae.py#L172-L196)
