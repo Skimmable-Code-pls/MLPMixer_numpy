@@ -28,4 +28,5 @@ To-do to mitigate overfitting: I think there's a potential to combine MAE and In
 
 
 To-do misc:
+- [ ] Set numpy seed to rule out lucky weight & bias init
 - [ ] Gradient accumulation for more desired batch size = 4096 and reduce code overhead. For the moment, this is low priority because it doesn't make sense to accumulate for desired batch size = 4096 when the training dataset only has 20000 samples, and doing this requires me to rewrite def backward of every layer and activation function to incorporate gradient accumulation.
