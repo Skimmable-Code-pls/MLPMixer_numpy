@@ -21,11 +21,11 @@ Here are the stuffs I have built from scratch without using torch
 - [x] CosineAnnealingLR scheduler (T_max = num_epochs, eta_min=0.00001)
 - [x] Stochastic Depth(0.1)
 
-To-do in numpy:. If this works out, I will try on tensorflow Vision Transformer.
+To-do in numpy:. If these ideas works out, I will try on tensorflow Vision Transformer. To understand how I came up with these ideas, read How Do Vision Transformers work?
 - [ ] Adapt random_masking from MAE. Start by reverse-engineering [img2img MLP-Mixer](https://github.com/MLI-lab/imaging_MLPs); then look at where masking module is placed [time-series MLP-Mixer x MAE]; then look at how MAE removes tokens with random_masking in encoder and [filling-in removed tokens at original positions with id_restores](https://github.com/facebookresearch/mae/blob/main/models_mae.py#L172-L196). We diverge from time-series MLP-Mixer x MAE because we don't intend to share MLP-Mixer block channelwise like they did.
 - [ ] [Sparse SAM](https://github.com/jjsrf/SSAM-NEURIPS2024) as initial long-epoch experiments make me suspicious of non-convex loss landscape from looking at training loss around epoch 60 -> 100
+- [ ] Add Gaussian noise to parameter update in optimiser.step(). Take inspiration from EDM2
 - [ ] Inception Block and PatchEmbedding from [CT-img2img MLP-Mixer](https://arxiv.org/pdf/2402.17951). The Inception block they use is already intended for dimension reduction per [Inception block original paper](https://arxiv.org/pdf/1409.4842) and so as PatchEmbedding. If using 2 dimension reduction modules next to each other improved the performance, then how about 3 dimension reduction modules: Inception block -> PatchEmbedding -> random_masking.
-- [ ] Add Gaussian noise to parameter update
 
 
 To-do misc:
