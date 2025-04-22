@@ -7,7 +7,7 @@ Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-imag
 - Permutation invariance isn't as big of a deal as I have originally thought given this project and [someone's else project on MLP-Mixer](https://github.com/sijan67/Exploring-the-MLP-Mixer-Architecture/tree/main). However, this maybe just means that when the resolution is very small and the amount of redundant pixel is very very small, the adverse effect of permutation invariance isn't amplified as it would be have if the resolution was 224x224 for example. Indeed, in more spotlight paper like [How do Vision Transformers work](https://openreview.net/forum?id=D78Go4hVcxO) 'permutation invariance' doesn't matter at all.
 
 Long epoch training MLPMixer on UNSW-NB15 dataset (100 epochs)
-![image]([https://github.com/user-attachments/assets/a439fefa-fcc7-4741-9bda-dc70cc4b0a4c](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer198_patch14_depth10_epoch100.png)) <br>
+![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer198_patch14_depth10_epoch100.png) <br>
 
 Here are the stuffs I have built from scratch without using torch
 - [x] Linear layer w/ manual backprop and init weight & bias w/ Kaiming uniform distribution
