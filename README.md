@@ -1,4 +1,4 @@
-Long epoch training MLPMixer on UNSW-NB15 dataset (100 epochs)
+Long epoch training MLPMixer on UNSW-NB15 dataset (100 epochs). Pretrained weight: mlpmixer198_patch14_embeddim198_depth10.npy
 ![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer198_patch14_depth10_epoch100.png) <br>
 
 Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-image specific dataset where every pixel is in extreme range from 0->9.57+E09
