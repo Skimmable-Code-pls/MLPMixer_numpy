@@ -1,4 +1,4 @@
-Short epoch training MLPMixer on UNSW-NB15 dataset (34 epochs). Pretrained weight is included here under .npy file. You should use the model and optimiser state loading function that I wrote in the MLP-Mixer_for_1dim-input.ipynb <br> ![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLP-Mixer_depth10_48_embed_dim.png)
+Short epoch training MLPMixer on UNSW-NB15 dataset (34 epochs). Pretrained weight is included here under model_optim_state.npy file. You should use the model and optimiser state loading function that I wrote in the MLP-Mixer_for_1dim-input.ipynb <br> ![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLP-Mixer_depth10_48_embed_dim.png)
 
 Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-image specific dataset where every pixel is in extreme range from 0->9.57+E09
 - UNSWNB15 is a non-image specific dataset the 'normalised pixel' in each column is a complete different range that can differ from [-2.5, 0] to [2.3+E9, 9.57+E9] so avoid MixUp and CutMix.
