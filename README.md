@@ -1,13 +1,11 @@
-Short epoch training MLPMixer on UNSW-NB15 dataset (34 epochs). Pretrained weight for this report is model_optim_state.npy under pretrained_weights folder. Use model and optimiser state loading function that I wrote in the MLP-Mixer_for_1dim-input.ipynb <br> ![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer48_patch1_depth10_epoch34.png)
+Long epoch training MLPMixer on UNSW-NB15 dataset (100 epochs)
+![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer198_patch14_depth10_epoch100.png) <br>
 
 Some key insights I discover in making MLP-Mixer work with UNSW-NB15, a non-image specific dataset where every pixel is in extreme range from 0->9.57+E09
 - UNSWNB15 is a non-image specific dataset the 'normalised pixel' in each column is a complete different range that can differ from [-2.5, 0] to [2.3+E9, 9.57+E9] so avoid MixUp and CutMix.
 - To detect vanishing gradient is to monitor max absolute difference of a linear layer weight before and after optimiser step throughout training. If it is approach 0 quickly yet loss stays the same, then it is vanishing gradient.
 - Contrary to what I originally worried about GELU activation function having an impact in creating vanishing gradient due to >90% 'pixels' of normalised UNSW-NB15 dataset within the range [-2.5; 0], it turnt out that replacing GELU with Tanh just made things worse, which it shouldn't have been had my worry was correct. So if it's not activation function, then tweaking weight decay and learning rate are so far the only way to deal with vanishing gradients.
 - Permutation invariance isn't as big of a deal as I have originally thought given this project and [someone's else project on MLP-Mixer](https://github.com/sijan67/Exploring-the-MLP-Mixer-Architecture/tree/main). However, this maybe just means that when the resolution is very small and the amount of redundant pixel is very very small, the adverse effect of permutation invariance isn't amplified as it would be have if the resolution was 224x224 for example. Indeed, in more spotlight paper like [How do Vision Transformers work](https://openreview.net/forum?id=D78Go4hVcxO) 'permutation invariance' doesn't matter at all.
-
-Long epoch training MLPMixer on UNSW-NB15 dataset (100 epochs)
-![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer198_patch14_depth10_epoch100.png) <br>
 
 Here are the stuffs I have built from scratch without using torch
 - [x] Linear layer w/ manual backprop and init weight & bias w/ Kaiming uniform distribution
