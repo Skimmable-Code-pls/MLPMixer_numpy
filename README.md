@@ -1,4 +1,4 @@
-MLPMixer in a nutshell. Recall that dot-product in MSAttn is (Q . K^T) = (x . W_Q^T) . (x . W_K^T)^T: <br> Using MSAttn as analogy and ignore activation function, then each MLPMixer block that contains a pair of (token-mixer, channel-mixer) would be <br> (x^T . W_K1^T . W_K2^T)^T . W_Q1^T . W_Q2^T
+MLPMixer in a nutshell. Recall that dot-product in MSAttn is (Q . K^T) = (x . W_Q^T) . (x . W_K^T)^T: <br> Using MSAttn as analogy and ignore activation function, then each MLPMixer block that contains a pair of (token-mixer, channel-mixer) would be (x^T . W_K1^T . W_K2^T)^T . W_Q1^T . W_Q2^T
 
 Long epoch training MLPMixer on UNSW-NB15 dataset (100 epochs). Pretrained weight: mlpmixer198_patch14_embeddim198_depth10.npy
 ![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer198_patch14_depth10_epoch100.png) <br>
