@@ -1,6 +1,6 @@
 [MLPMixer in a nutshell according to Yann Lecunn](https://x.com/ylecun/status/1390543133474234368?lang=en). TokenMixing: Each linear projection of x^t = special case of DWConv where kernel size = patch size, so TokenMixing = x2 Depthwise Conv layers with activation function inbetween. ChannelMixing: Each linear projection of x = Pointwise 1x1-Conv. 
 
-Given that (3x3-Depthwise-Conv -> Pointwise-Conv) = 3x3-Conv, but MLP-Mixer block is (PxP-DWConv with expansion factor -> PxP-DWConv -> 1x1-Conv with expansion factor -> 1x1-Conv) so it turns out MLP-Mixer block looks like ConvNeXt block with extra step ![image](https://github.com/user-attachments/assets/2412943f-4fe8-4c70-a739-efea49f00fe6)
+Given that (3x3-Depthwise-Conv -> Pointwise-Conv) = 3x3-Conv, but MLP-Mixer block is (PxP-DWConv with expansion factor -> PxP-DWConv -> 1x1-Conv with expansion factor -> 1x1-Conv) so it turns out MLP-Mixer block looks like ConvNeXt block with extra step ![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer_is_ConvNeXt.png).
  
 Long epoch training MLPMixer on UNSW-NB15 dataset (100 epochs). Pretrained weight: mlpmixer198_patch14_embeddim198_depth10.npy
 ![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer198_patch14_depth10_epoch100.png) <br>
