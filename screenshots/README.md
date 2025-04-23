@@ -7,7 +7,7 @@ Experiment 1: use somewhat high LR (0.01)
 
 Experiment 2: Use patch=14, Cosine scheduler with somewhat high LR (0.01) and linear warmup for 10 epochs
 - LR is low enough that training loss doesn't wiggle but very high enough for validation loss to wiggle a lot.
-- Warmup helps gradient descent plummet more during initial 5 epochs.
+- Warmup helps gradient descent plummet more during initial 2-3 epochs then it loses its usefulness.
 
 
 Experiment 3: Use patch=3, Cosine scheduler with very high LR (0.1) and high warm restart to escape saddle point
