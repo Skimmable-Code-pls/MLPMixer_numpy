@@ -11,7 +11,7 @@ Read technical key insights that I crafted from experiments in [screenshots/READ
 - [ ] Add Gaussian noise to parameter update in optimiser.step() per advised by [this recent paper about escaping saddle points](https://arxiv.org/pdf/2410.02017). Take inspiration from EDM2 to figure how to design a proper noise scheduler w.r.t training iterations
 - [ ] [Lambda layer](https://arxiv.org/pdf/2102.08602). Hardest actionable idea but also maybe the most worth it because it basically has the Data Specificity benefit of MSAttns but none of its' issues that stemmed from long-range dependency.
 - [ ] Inception Block and PatchEmbedding from [CT-img2img MLP-Mixer](https://arxiv.org/pdf/2402.17951). The Inception block can do some spatial smoothing, which is good according to [How Do Vision Transformers Work?](https://openreview.net/forum?id=D78Go4hVcxO).
-- [x] Linear layer
+- [x] Linear layer*
 - [x] Init linear layer's weight & bias w/ Kaiming uniform distribution
 - [x] DropOut
 - [x] LayerNorm
@@ -24,8 +24,8 @@ Read technical key insights that I crafted from experiments in [screenshots/READ
 - [x] Optimiser.zero_grad()
 - [x] Model.zero_grad(). Because I'm doing backprop manually without the assistance of torch's Autograd, so I also have to delete each layer's gradient manually after backprop. 
 - [x] Warmup (epoch 0: lr=0 -> epoch 10: lr=0.001)
-- [x] "Sharpening" CosineAnnealingLR. Looking it's improve so far
-- [x] CosineAnnealingLR with WarmRestarts*
+- [x] "Sharpening" Cosine scheduler. It's improving the model's performance in the ongoing experiment so far
+- [x] CosineScheduler with warm restart*
 - [x] StochasticDepth
 - [ ] Set numpy seed to rule out lucky weight & bias init
 - [ ] Gradient accumulation for more desired batch size = 4096 and reduce code overhead. For the moment, this is low priority because it doesn't make sense to accumulate for desired batch size = 4096 when the training dataset only has 20000 samples, and doing this requires me to rewrite def backward of every layer and activation function to incorporate gradient accumulation.
