@@ -26,7 +26,7 @@ Read technical key insights that I crafted from experiments in [screenshots/READ
 - [x] Optimiser.zero_grad()
 - [x] Model.zero_grad(). Because I'm doing backprop manually without the assistance of torch's Autograd, so I also have to delete each layer's gradient manually after backprop. 
 - [x] Warmup (epoch 0: lr=0 -> epoch 10: lr=0.001)
-- [x] CosineAnnealingLR
+- [x] "Sharpening" CosineAnnealingLR. Looking it's improve so far
 - [x] CosineAnnealingLR with WarmRestarts*
 - [x] StochasticDepth
 - [ ] Set numpy seed to rule out lucky weight & bias init
