@@ -19,6 +19,7 @@ Read technical key insights that I crafted from experiments in [screenshots/READ
 - [x] Adam optimiser w/ β1 = 0.9, β2 = 0.999, weight decay = 0, lr=0.001. Updating weight is the hardest bit to build and debug that I ended up accidentally find a way to consistently detect vanishing gradient within 3 epochs
 - [x] Binary Cross Entropy with logits
 - [x] Optimiser.zero_grad()
+- [x] Model.zero_grad(). Because I'm doing backprop manually without the assistance of torch's Autograd, so I also have to delete each layer's gradient manually after backprop. 
 - [x] Warmup (epoch 0: lr=0 -> epoch 10: lr=0.001)
 - [x] CosineAnnealingLR
 - [x] CosineAnnealingLR with WarmRestarts*
