@@ -1,4 +1,6 @@
 Technical insights progression: <br>
+Initial impression: UNSW-NB15 is a tabular dataset where each feature column is in its own very, very distinct range: Some in [0; 127], others in [2.3+E09; 9.7+E09]. Even after rescale to [0; 1] and normalise, some clumn feature ends up being in [0; +-0.5] and other feature column have magnitude greater than 2. <br>
+
 Experiment 1: use somewhat high LR (0.01), embed_dim=48, depth=10, patch=1
 - LR is low enough that training loss doesn't wiggle but high enough for validation loss to wiggle.
 - Without using patchify (patch=1), linear projection on x^T in TokenMixing = HxW-DWConv-strideHxW (or 1x1-Pointwise Conv along token dimension) => Massive shift toward global receptive field (long-range dependency), which means flatter loss landscape but has shit tons of saddle points according to [How Do Vision Transformers Work](https://openreview.net/forum?id=D78Go4hVcxO) spotlight paper.
