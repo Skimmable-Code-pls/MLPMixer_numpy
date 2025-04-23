@@ -1,1 +1,1 @@
-
+Technical note progression:
