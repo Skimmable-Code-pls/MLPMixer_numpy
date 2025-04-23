@@ -4,7 +4,7 @@ TokenMixing = x2 linear projection of x^t with GELU and DropOut(optional) betwee
 Long epoch training MLPMixer on UNSW-NB15 dataset (100 epochs). Pretrained weight: mlpmixer198_patch14_embeddim198_depth10.npy
 ![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer198_patch14_depth10_epoch100.png) <br>
 
-Read technical key insights that I crafted from experiments in [screenshots/README.md](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/README.md). Here, I'll list only actionable ideas below to build from scratch using only numpy, scipy, math. Note that if * means I have successfully built it but it had adverse effects as shown from experiments or applying the principles from [How Do Vision Transformers Work?](https://openreview.net/forum?id=D78Go4hVcxO) here. If these ideas works out, I will try on tensorflow Vision Transformer. Finally, read [How Do Vision Transformers Work?](https://openreview.net/forum?id=D78Go4hVcxO) to understand how I came up with these actionable ideas <br>
+Read technical key insights that I crafted from experiments in [screenshots/README.md](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/README.md). Here, I'll list only actionable ideas below to build from scratch using only numpy, scipy, math. Note that if * means I have successfully built it but it had adverse effects from experimenting or applying the principles from [How Do Vision Transformers Work?](https://openreview.net/forum?id=D78Go4hVcxO) here. If these ideas works out, I will try on tensorflow Vision Transformer. Finally, read [How Do Vision Transformers Work?](https://openreview.net/forum?id=D78Go4hVcxO) to understand how I came up with these actionable ideas <br>
 - [ ] Add more Conv block at beginning following Alter-ResNet design in [How Do Vision Transformers Work?](https://openreview.net/forum?id=D78Go4hVcxO): Let's start ConvNeXt block first since it's easy to tweak MLP-Mixer block to get ConvNeXt; then ResNeXt or ResNet blocks as long as either of them have DW-Separable conv design from Efficient.
 - [ ] random_masking from MAE. Start by reverse-engineering [img2img MLP-Mixer](https://github.com/MLI-lab/imaging_MLPs); then look at where masking module is placed [time-series MLP-Mixer x MAE]; then look at how MAE removes tokens with random_masking in encoder and [filling-in removed tokens at original positions with id_restores](https://github.com/facebookresearch/mae/blob/main/models_mae.py#L172-L196). We diverge from time-series MLP-Mixer x MAE because we don't intend to share MLP-Mixer block channelwise like they did.
 - [ ] [Sparse SAM](https://github.com/jjsrf/SSAM-NEURIPS2024) as initial long-epoch experiments make me suspicious of non-convex loss landscape from looking at training loss around epoch 60 -> 100
@@ -15,7 +15,7 @@ Read technical key insights that I crafted from experiments in [screenshots/READ
 - [x] DropOut
 - [x] LayerNorm
 - [x] GeLU
-- [ ] Tanh*
+- [ ] Tanh*. I won't post experiment because I couldn't be bother to train 100 epochs when initial 20 epochs is straight up bad compared to the worst configuration in here.
 - [x] TokenMixer block*
 - [x] ChannelMixer block
 - [x] Adam optimiser w/ β1 = 0.9, β2 = 0.999, weight decay = 0, lr=0.001. Updating weight is the hardest bit to build and debug that I ended up accidentally find a way to consistently detect vanishing gradient within 3 epochs
