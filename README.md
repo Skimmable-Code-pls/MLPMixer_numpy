@@ -16,7 +16,7 @@ Read technical key insights that I crafted from experiments in [screenshots/READ
 - [x] DropOut
 - [x] LayerNorm
 - [x] GeLU
-- [ ] Tanh*. I won't post experiment because I couldn't be bother to train 100 epochs when initial 20 epochs is straight up bad compared to the worst configuration in here.
+- [x] Tanh*. I won't post experiment because I couldn't be bother to train 100 epochs when initial 20 epochs is straight up bad compared to the worst configuration in here.
 - [x] TokenMixer block*
 - [x] ChannelMixer block
 - [x] Adam optimiser w/ β1 = 0.9, β2 = 0.999, weight decay = 0, lr=0.001. Updating weight is the hardest bit to build and debug that I ended up accidentally find a way to consistently detect vanishing gradient within 3 epochs
