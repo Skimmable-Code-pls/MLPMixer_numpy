@@ -21,4 +21,5 @@ Experiment 4: Cosine-warm restart scheduler with very low LR (0.0001) to escape 
 ![image](https://github.com/Skimmable-Code-pls/MLPMixer_numpy/blob/main/screenshots/MLPMixer198_patch3_depth10_epoch100_schedulerWarmRestart_lowLR.png)
 
 
-Experiment 5: Scrap warm restart, use normal Cosine schedule with very high LR for 2 epochs to boost gradient descent in initial 2 epochs but use sharp Cosine decay to prevent wiggle validation loss from epoch 3 onward. Currently testing. 
+Experiment 5: Scrap warm restart, use normal Cosine schedule with very high LR for 2 epochs to boost gradient descent in initial 2 epochs but use sharp Cosine decay to prevent wiggle validation loss from epoch 3 onward. It works, look at the progression from epoch 3 onward, a lot smoother. However, the model doesn't learn much because my default eta_min for cosine scheduler turns out to be too small in this scenario. So it seems like I should boost eta_min to 4e-5 and flatten the loss landscape to compensate for sharp cosine scheduler.
+![image]()
