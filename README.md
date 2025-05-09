@@ -1,7 +1,8 @@
 # Overview
-This repo is achieve the following:
-- [x] Build ML model from scratch 99.9% in numpy and train it on tabular dataset
-- [ ] Improve accuracy of a given neural network architecture without relying on more dataset nor higher quality dataset
+This repo is to achieve the following:
+- [x] Build ML model from scratch 99.9% in numpy
+- [x] Preprocessing tabular dataset where every spatial feature has completely different "pixel magnitude" e.g. in UNSW-NB15 dataset, some column has pixen magnitude in range of 0->150 while other in range of 2.3+E9->9+E9 
+- [ ] Fix architectural problem of a given neural network to improve model accuracy
 
 # Background
 TokenMixing = double linear projection of x^t with GELU and DropOut(optional) between 2 linear layers <br>
