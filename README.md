@@ -1,7 +1,7 @@
 # Overview
 This repo is to achieve the following:
 - [x] Build ML model from scratch 99.9% in numpy
-- [x] Preprocessing tabular dataset where every spatial feature has completely different "pixel magnitude" e.g. in UNSW-NB15 dataset, some column has pixen magnitude in range of 0->150 while other in range of 2.3+E9->9+E9 
+- [x] Preprocessing tabular dataset where every spatial feature has completely different "pixel magnitude" e.g. in UNSW-NB15 dataset, some column has pixen magnitude in range of 0->150 while other in range of 2.3+E9->9+E9. Currently I'm forced to use only rescaling and normalisation, but converting pixel space into latent space and use it alongside masked autoencoder is [an interesting prospect](https://arxiv.org/pdf/2502.03444) for future work
 - [ ] Fix architectural problem of a given neural network to improve model accuracy
 
 # Background
